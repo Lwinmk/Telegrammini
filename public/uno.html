@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Game</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #222; color: #fff; text-align: center; padding: 20px; }
+        .card { display: inline-block; width: 70px; height: 100px; line-height: 100px; margin: 5px; border-radius: 8px; font-weight: bold; font-size: 20px; cursor: pointer; }
+        .red { background: #e74c3c; } .blue { background: #3498db; } .green { background: #2ecc71; } .yellow { background: #f1c40f; color: #000; }
+    </style>
+</head>
+<body>
+    <h2>🎴 UNO Card Game</h2>
+    <p>ဝိုင်းလယ်ကတ်: <span id="top-card" class="card red">🔴 7</span></p>
+    <hr>
+    <p>သင့်လက်ထဲရှိ ကတ်များ (နှိပ်ပြီး ပစ်ပါ):</p>
+    <div id="hand">
+        <div class="card red" onclick="playCard(this)">🔴 3</div>
+        <div class="card blue" onclick="playCard(this)">🔵 7</div>
+        <div class="card yellow" onclick="playCard(this)">🟡 5</div>
+    </div>
+    <br><br>
+    <a href="index.html" style="color:#aaa;">🔙 Menu သို့ပြန်သွားရန်</a>
+
+    <script>
+        function playCard(el) {
+            document.getElementById('top-card').className = el.className;
+            document.getElementById('top-card').innerHTML = el.innerHTML;
+            el.remove();
+        }
+    </script>
+</body>
+</html>
