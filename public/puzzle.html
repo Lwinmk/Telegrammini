@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Puzzle</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 60px); gap: 5px; justify-content: center; margin: 20px auto; }
+        .cell { width: 60px; height: 60px; background: #334155; border-radius: 6px; cursor: pointer; }
+        .active { background: #38bdf8; }
+    </style>
+</head>
+<body>
+    <h2>🧩 Block Puzzle (4x4)</h2>
+    <p>ကွက်လပ် အတုံးလေးတွေကို နှိပ်ပြီး ဖြည့်ပါ-</p>
+    <div>Score: <span id="score">0</span></div>
+
+    <div class="grid" id="grid"></div>
+    <br>
+    <a href="index.html" style="color:#aaa;">🔙 Menu သို့ပြန်သွားရန်</a>
+
+    <script>
+        const grid = document.getElementById('grid');
+        let score = 0;
+
+        for (let i = 0; i < 16; i++) {
+            let cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.onclick = () => {
+                if (!cell.classList.contains('active')) {
+                    cell.classList.add('active');
+                    score += 5;
+                    document.getElementById('score').innerText = score;
+                }
+            };
+            grid.appendChild(cell);
+        }
+    </script>
+</body>
+</html>
