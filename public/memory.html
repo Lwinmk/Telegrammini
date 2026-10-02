@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #181818; color: #fff; text-align: center; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 65px); gap: 10px; justify-content: center; margin: 20px auto; }
+        .card { width: 65px; height: 65px; background: #333; font-size: 28px; line-height: 65px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>🧠 Memory Match</h2>
+    <p>ပုံတူစုံတွဲများ ရှာပါ-</p>
+    <div class="grid" id="grid"></div>
+    <br>
+    <a href="index.html" style="color:#aaa;">🔙 Menu သို့ပြန်သွားရန်</a>
+
+    <script>
+        const icons = ['🍎', '🍎', '🍌', '🍌', '🐶', '🐶', '🚗', '🚗'];
+        icons.sort(() => 0.5 - Math.random());
+        const grid = document.getElementById('grid');
+        let flipped = [];
+
+        icons.forEach(icon => {
+            let card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.icon = icon;
+            card.onclick = () => {
+                if (flipped.length < 2 && !card.innerText) {
+                    card.innerText = icon;
+                    flipped.push(card);
+                    if (flipped.length === 2) {
+                        if (flipped[0].dataset.icon === flipped[1].dataset.icon) {
+                            flipped = [];
+                        } else {
+                            setTimeout(() => {
+                                flipped[0].innerText = '';
+                                flipped[1].innerText = '';
+                                flipped = [];
+                            }, 800);
+                        }
+                    }
+                }
+            };
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
