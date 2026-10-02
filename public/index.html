@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Mini Apps</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background-color: #121212; color: #fff; text-align: center; padding: 20px; }
+        .card { background: #1f1f2e; padding: 18px; margin: 12px 0; border-radius: 12px; display: block; color: #00d2d3; text-decoration: none; font-weight: bold; border: 1px solid #333; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h2>🎮 Telegram Mini Arcade</h2>
+    <p>ဆော့ကစားချင်တဲ့ ဂိမ်းကို ရွေးချယ်ပါ-</p>
+
+    <a href="math.html" class="card">🔢 1. Math Speed Quiz</a>
+    <a href="puzzle.html" class="card">🧩 2. Block Puzzle Game</a>
+    <a href="uno.html" class="card">🎴 3. UNO Card Game</a>
+    <a href="memory.html" class="card">🧠 4. Memory Match Game</a>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+    </script>
+</body>
+</html>
